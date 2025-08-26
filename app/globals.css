@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "nastaliq";
+  font-weight: 100;
+  src: url("../public/fonts/nastaliq.ttf");
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  font-weight: 100;
+  src: url("../public/fonts/IRANSansX-Light.woff2");
+}
+
+@font-face {
+  font-family: "IRANSansX-medium";
+  font-weight: 100;
+  src: url("../public/fonts/IRANSansX-Medium.woff2");
+}
+
+@font-face {
+  font-family: "IRANSansX-Regular";
+  font-weight: 100;
+  src: url("../public/fonts/IRANSansX-Regular.woff2");
+}
+
+.IRANSansX-medium {
+  font-family: IRANSansX-medium !important;
+}
+
+.IRANSansX {
+  font-family: IRANSansX !important;
+}
+
+.IRANSansX-light {
+  font-family: IRANSansX-Regular !important;
+}
+
+* {
+  font-family: IRANSansX !important;
+}
+
+.nastaliq {
+  font-family: nastaliq !important;
+}
+
+.font-input input {
+  font-family: IRANSansX-light !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-[#5458ff];
+}
+
+.scroll-custom {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #5458ff #f1f1f1; /* Thumb and track color */
+}
