@@ -85,10 +85,6 @@ export default function Home() {
   } = useForm<FormValues>({ mode: "onChange" });
 
 
-  useEffect(() => {
-    Cookies.remove("token");
-  }, [])
-
   //  ---------------- Api call ----------------
 
   // const onSubmit = async (data: FormValues) => {
@@ -125,17 +121,15 @@ export default function Home() {
         toast.success("کاربر گرامی با موفقییت وارد شدید");
         const { status, data } = response;
 
-        // status === 200 &&
-        //   // Cookies.set("token", data?.accessToken, { secure: true });
-        //   Cookies.set("token", data?.accessToken);
+
 
         if (status === 200) {
-          Cookies.set("token", data?.accessToken, {});
+          Cookies.set("token", data?.accessToken, { path: "/", sameSite: "lax" });
 
         }
 
         setTimeout(() => {
-          router.push("/charts");
+          router.replace("/charts")
           setLoading(false);
           reset();
         }, 2000);
@@ -146,14 +140,14 @@ export default function Home() {
           toast.error("خطا در برقراری ارتباط");
         }
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     }
 
     makeRequest();
   };
 
-  // console.log(Cookies.get("token"));
+
 
   // -------------------------------
 
