@@ -118,7 +118,7 @@ export default function Home() {
       try {
         const response = await axios.request(config);
 
-        toast.success("کاربر گرامی با موفقییت وارد شدید");
+        // toast.success("کاربر گرامی با موفقییت وارد شدید");
         const { status, data } = response;
 
 
@@ -129,7 +129,7 @@ export default function Home() {
         }
 
         setTimeout(() => {
-          router.replace("/charts")
+          // router.replace("/charts")
           setLoading(false);
           reset();
         }, 2000);
@@ -146,7 +146,6 @@ export default function Home() {
 
     makeRequest();
   };
-
 
 
   // -------------------------------
