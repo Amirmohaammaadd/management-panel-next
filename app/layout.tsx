@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MuiRTLConfig from "./mui-RTL";
+import { Toaster } from "react-hot-toast";
+import Providers from "./services/react-query-config";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 // ---------------------------
 
@@ -26,7 +29,14 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={` ${IRANSansX.className} `}>
-        <MuiRTLConfig>{children}</MuiRTLConfig>
+        <Providers>
+          <MuiRTLConfig>
+            <AntdRegistry>
+              {children}
+            </AntdRegistry>
+          </MuiRTLConfig>
+        </Providers>
+        <Toaster position="top-center" />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 import TextField from "@mui/material/TextField";
 import { Button, IconButton, InputAdornment, Switch } from "@mui/material";
 import { MdOutlineVisibilityOff, MdVisibility } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import img1 from "@/public/assets/img/1.jpg";
@@ -15,7 +15,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../app/globals.css";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -64,7 +64,7 @@ const validationAll = {
 };
 
 export default function Home() {
-  // const router = useRouter();
+  const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -121,11 +121,8 @@ export default function Home() {
         // toast.success("کاربر گرامی با موفقییت وارد شدید");
         const { status, data } = response;
 
-
-
         if (status === 200) {
           Cookies.set("token", data?.accessToken, { path: "/", sameSite: "lax" });
-
         }
 
         setTimeout(() => {
@@ -146,6 +143,52 @@ export default function Home() {
 
     makeRequest();
   };
+
+  // const infinitLoope = () => {
+  //   while (true) {
+  //     console.log("hii");
+
+  //   }
+  // }
+
+  // infinitLoope()
+
+
+  // const p = new Promise((resolve, reject) => {
+  //   if (true) resolve("its ok")
+  //   reject("Not Ok")
+  // })
+
+  // p.then((res) => {
+  //   console.log(res);
+
+  // }).catch((e) => {
+  //   console.log(e);
+
+  // }).finally(() => {
+  //   console.log("finally");
+  // })
+
+
+
+  const UserData = {
+    user: "user",
+    admin: "admin",
+    hr: "hr",
+    dev: "dev",
+  } as const
+
+  type MainUser = {
+    role: keyof typeof UserData
+    age: number
+    name: string
+  }
+
+  const myObj: MainUser = {
+    name: "amir",
+    age: 12,
+    role: "user"
+  }
 
 
   // -------------------------------
