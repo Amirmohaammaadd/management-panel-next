@@ -26,7 +26,7 @@ const fetchProducts = async (filters: FilterData) => {
 
   const url =
     filters.priceFilter || filters.categoryId
-      ? `https://api.escuelajs.co/api/v1/products/?${params.toString()}`
+      ? `https://api.escuelajs.co/api/v1/products?${params.toString()}`
       : `https://api.escuelajs.co/api/v1/products`;
 
   const res = await axios.get(url);
@@ -126,7 +126,7 @@ const SearchParamComp = () => {
     if (newFilters.priceFilter) query.push("price=100");
     if (newFilters.categoryId) query.push("categoryId=11");
 
-    router.replace(query.length > 0 ? `?${query.join("&")}` : "/user");
+    router.replace(query.length > 0 ? `?${query.join("&")}` : "/specialOffer");
   };
 
   return <>
