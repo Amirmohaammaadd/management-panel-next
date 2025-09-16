@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 const StructureJSPage = () => {
 
     // ----------- بزرگ ترین عضو آرایه -----------
@@ -27,6 +29,27 @@ const StructureJSPage = () => {
     // }
 
     // console.log(removeDup([1, 2, 4, 6, 6]))
+
+    type Static = {
+        name: "Amir" | "Ali" | "Reza"
+    }
+
+    type Complex = Record<Static["name"], CSSProperties>
+
+    const buttonStyle: Complex = {
+        Ali: { color: "red" },
+        Amir: { backgroundColor: "blue" },
+        Reza: { border: "2px" }
+    }
+
+
+
+
+
+
+
+
+
 
     return (<></>);
 }
